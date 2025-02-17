@@ -28,7 +28,7 @@ defineEmits<{ (e: "scrollToMain"): void }>();
   align-items: center;
   justify-content: center;
 
-  height: 75%;
+  height: 90dvh;
 }
 
 .intro-skills {

@@ -17,25 +17,49 @@ const handleScroll = () => {
 </script>
 
 <template>
-  <div id="app" class="container">
-    <article class="hero">
-      <Particles />
-      <Intro @scroll-to-main="handleScroll" />
-    </article>
-    <article id="main" ref="main">
-      <Expertise />
-      <MyWork />
-    </article>
+  <div id="app">
+    <section class="canvas-bg">
+      <article class="hero">
+        <Particles />
+        <Intro @scroll-to-main="handleScroll" />
+      </article>
+      <article id="main" ref="main">
+        <Expertise />
+        <section class="dark-bg">
+          <MyWork />
+        </section>
+      </article>
+    </section>
   </div>
 </template>
 
 <style scoped>
-.hero {
+/* .hero {
+  height: 100dvh;
+} */
+/*
+article {
+  height: 100dvh;
+} */
+
+/* .canvas-bg {
+  position: relative;
+  background: linear-gradient(45deg, #ff7e5f, #feb47b); Optional
+  background: linear-gradient(linear-gradient(#042731, #1d1d1d));
+  overflow: hidden;
+} */
+
+#main {
   height: 100dvh;
 }
 
-article {
-  height: 100dvh;
+.canvas-bg {
+  background: linear-gradient(#042731, #1d1d1d);
+}
+
+.dark-bg {
+  background-color: #1d1d1d;
+  position: relative;
 }
 
 .container {
