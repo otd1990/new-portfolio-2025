@@ -1,0 +1,81 @@
+@import url("./assets/styles/fonts.css");
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  background: linear-gradient(#042731, #1d1d1d);
+}
+
+html,
+body,
+p,
+span,
+div {
+  font-family: "Roboto Mono", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: 0.5rem;
+  color: #fff;
+  margin: 0;
+}
+
+h1 {
+  font-size: 8vw;
+}
+
+.h1 {
+  font-size: 6vw;
+  margin-bottom: 1rem;
+}
+
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important; /* 2 */
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+.button--reset {
+  border: none;
+  background: none;
+  padding: 0;
+
+  &:not(&:focus-visible) {
+    outline: none;
+  }
+}
+
+button:not(:disabled),
+a:not(:disabled) {
+  cursor: pointer;
+}
+
+.section-padding {
+  padding: 6rem 0;
+}
+
+.section-padding + .section-padding {
+  padding-top: 0;
+  padding-bottom: 2rem;
+}
+
+iframe {
+  border: none;
+}
