@@ -49,6 +49,10 @@ h2 {
   text-align: center;
 }
 
+.expertise {
+  height: 100dvh;
+}
+
 .expertise__boxes {
   display: flex;
   justify-content: center;

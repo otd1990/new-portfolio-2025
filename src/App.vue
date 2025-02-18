@@ -54,7 +54,7 @@ article {
 }
 
 .canvas-bg {
-  background: linear-gradient(#042731, #1d1d1d);
+  background: linear-gradient(#042731 5%, #1d1d1d 95%);
 }
 
 .dark-bg {
