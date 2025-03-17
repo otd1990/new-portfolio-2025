@@ -6,9 +6,8 @@
   margin: 0;
 }
 
-/* body,
-html {
-  background: linear-gradient(#042731, #1d1d1d);
+/* html {
+  background: #1d1d1d;
 } */
 
 html,
@@ -80,4 +79,20 @@ a:not(:disabled) {
 
 iframe {
   border: none;
+}
+
+.light-colour {
+  color: #fff;
+}
+
+.btn {
+  text-overflow: ellipsis;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.btn-primary {
+  background-color: #740bdc;
+  color: #fff;
+  text-decoration: none;
 }

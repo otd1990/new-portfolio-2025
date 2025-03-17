@@ -60,6 +60,7 @@ article {
 .dark-bg {
   background-color: #1d1d1d;
   position: relative;
+  margin-top: 2rem;
 }
 
 .container {

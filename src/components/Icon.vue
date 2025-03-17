@@ -10,7 +10,7 @@ const props = defineProps({
 
 // feel free to update this with an svg directory of your choice
 const icon = defineAsyncComponent(() =>
-  import(`/src/assets/images/${props.name}.svg`)
+  import(`/src/assets/images/icons/${props.name}.svg`)
 );
 </script>
 
