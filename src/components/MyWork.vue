@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
 import Icon from "./Icon.vue";
+import WorkItems from "./WorkItems.vue";
 </script>
 
 <template>
@@ -24,19 +24,24 @@ import Icon from "./Icon.vue";
       <Icon name="work-animation" />
     </aside>
   </section>
+  <section class="my-work__work-container">
+    <WorkItems />
+  </section>
 </template>
 
 <style scoped>
 .my-work {
   display: flex;
   gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
 
   > div {
     flex: 1;
   }
 
   > aside {
-    flex: 2;
+    flex: 0;
 
     > svg {
       margin: 0 auto;
@@ -46,5 +51,12 @@ import Icon from "./Icon.vue";
 }
 .my-work__intro-text {
   color: #fff;
+}
+
+.my-work__work-container {
+  padding-bottom: 8rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 </style>
