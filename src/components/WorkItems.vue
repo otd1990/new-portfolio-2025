@@ -38,6 +38,16 @@
             <p class="poppins-regular light-colour">
               {{ project.description }}
             </p>
+            <section class="work-item__built-with flex-center-between">
+              <p>Built With</p>
+              <div class="work-item__gallery-lang-icon">
+                <Icon
+                  v-for="(item, idx) in project.builtWith"
+                  :key="`${item}-${index}-${idx}`"
+                  :name="item"
+                />
+              </div>
+            </section>
           </div>
           <a
             class="btn btn-primary work-item__btn"
@@ -45,7 +55,7 @@
             target="blank"
             rel="noopener noreferrer"
           >
-            <div>Go to project</div>
+            <div>{{ project.isDeployed ? "Visit Site" : "Go to project" }}</div>
             <span class="work-item__icon"><Icon name="down-arrow" /></span
           ></a>
         </div>
@@ -248,6 +258,26 @@ const filteredProjects = computed(() => {
   > span {
     display: block;
     transform: rotate(-90deg);
+  }
+}
+
+.work-item__gallery-lang-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  padding: 0.75rem;
+
+  > svg {
+    height: 1rem;
+    width: 1rem;
+  }
+}
+
+.work-item__built-with {
+  > p {
+    color: #fff;
+    font-size: 0.7rem;
   }
 }
 

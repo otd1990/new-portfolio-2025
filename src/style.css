@@ -96,3 +96,9 @@ iframe {
   color: #fff;
   text-decoration: none;
 }
+
+.flex-center-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
