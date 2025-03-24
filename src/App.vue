@@ -4,6 +4,7 @@ import Particles from "./components/Particles.vue";
 import Intro from "./components/Intro.vue";
 import Expertise from "./components/Expertise.vue";
 import MyWork from "./components/MyWork.vue";
+import ProfessionalExperience from "./components/ProfessionalExperience.vue";
 
 const main = ref();
 
@@ -27,6 +28,9 @@ const handleScroll = () => {
         <Expertise />
         <section class="dark-bg">
           <MyWork />
+        </section>
+        <section class="dark-bg">
+          <ProfessionalExperience />
         </section>
       </article>
     </section>
