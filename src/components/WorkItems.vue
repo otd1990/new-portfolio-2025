@@ -15,7 +15,7 @@
                 lang.toLocaleLowerCase() === projectType,
             }"
           >
-            0{{ index + 1 }}. {{ lang }}
+            {{ lang }} <sup>0{{ index + 1 }}. </sup>
           </button>
         </li>
       </ul>
@@ -38,6 +38,16 @@
             <p class="poppins-regular light-colour">
               {{ project.description }}
             </p>
+            <section class="work-item__built-with flex-center-between">
+              <p>Built With</p>
+              <div class="work-item__gallery-lang-icon">
+                <Icon
+                  v-for="(item, idx) in project.builtWith"
+                  :key="`${item}-${index}-${idx}`"
+                  :name="item"
+                />
+              </div>
+            </section>
           </div>
           <a
             class="btn btn-primary work-item__btn"
@@ -45,7 +55,7 @@
             target="blank"
             rel="noopener noreferrer"
           >
-            <div>Go to project</div>
+            <div>{{ project.isDeployed ? "Visit Site" : "Go to project" }}</div>
             <span class="work-item__icon"><Icon name="down-arrow" /></span
           ></a>
         </div>
@@ -79,7 +89,7 @@ const projects = [
     description:
       "A website used display books written by an independant author. This site is built with a CMS meaning the creator can control their work",
     builtWith: ["nuxt", "scss", "supabase"],
-    url: "https://sandraplumb.com/",
+    url: "https://github.com/otd1990/Sandra-Books",
     imageName: "sandra-pumb-books.png",
     backgroundColour: "#fbf8f2",
     primaryLang: "vue/nuxt",
@@ -158,15 +168,32 @@ const filteredProjects = computed(() => {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  margin-bottom: 1rem;
 }
-.work-item__filter-list-item + .work-item__filter-list-item::before {
+
+.work-item__filter-list-item {
+  display: flex;
+  align-items: center;
+}
+
+.work-item__filter-list-item:not(:last-child):after {
   content: "/ ";
+  color: #fff;
+  display: inline-block;
+  padding: 0 1.5rem;
 }
+
 .work-item__filter-list-btn {
   color: #fff;
   font-size: 1rem;
   letter-spacing: 1px;
   cursor: pointer;
+
+  > sup {
+    position: relative;
+    top: -2.75pt;
+    font-size: 0.65rem;
+  }
 }
 
 .work-item__filter-list-btn--active {
@@ -234,15 +261,45 @@ const filteredProjects = computed(() => {
   }
 }
 
+.work-item__gallery-lang-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  padding: 0.75rem;
+
+  > svg {
+    height: 1rem;
+    width: 1rem;
+  }
+}
+
+.work-item__built-with {
+  > p {
+    color: #fff;
+    font-size: 0.7rem;
+  }
+}
+
 @media (max-width: 900px) {
   .work-item__gallery {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
+  .work-item__filter-list-item:not(:last-child)::after {
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 610px) {
   .work-item__gallery {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .work-item__filter-list {
+    flex-wrap: wrap;
   }
 }
 </style>

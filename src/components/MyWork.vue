@@ -35,6 +35,8 @@ import WorkItems from "./WorkItems.vue";
   gap: 1rem;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 2rem;
+  flex-wrap: wrap;
 
   > div {
     flex: 1;
