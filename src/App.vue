@@ -29,7 +29,7 @@ const handleScroll = () => {
         <section class="dark-bg">
           <MyWork />
         </section>
-        <section class="dark-bg">
+        <section class="dark-bg margin-0">
           <ProfessionalExperience />
         </section>
       </article>

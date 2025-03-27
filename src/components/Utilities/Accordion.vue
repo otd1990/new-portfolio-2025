@@ -1,44 +1,89 @@
 <template>
-  <section class="accordion">
-    <label class="accordion__label" :for="`accordionRadio-${accordionNo}`">
-      <div>{{ title }}</div>
-    </label>
-    <input
-      :id="`accordionRadio-${accordionNo}`"
-      type="radio"
-      radiogroup="accordion-radio"
-      name="accordion-radio"
-      class="accordion__radio"
-    />
+  <section ref="accordionRef" class="accordion" :class="{ active: isOpen }">
+    <div class="accordion__label">
+      <div class="accordion__title">{{ title }}</div>
+      <div class="accordion__title-supp">{{ titleSup }}</div>
+    </div>
 
-    <section class="accordion__body">
+    <section
+      class="accordion__body"
+      ref="bodyRef"
+      :style="{ height: bodyHeight }"
+    >
       <slot name="body"></slot>
     </section>
   </section>
 </template>
 
 <script setup lang="ts">
+import { ref, watch, nextTick } from "vue";
+
 interface IAccordionProps {
   accordionNo: number;
   title: string;
   titleSup?: string;
   body?: string;
+  isOpen?: false;
 }
 
-withDefaults(defineProps<IAccordionProps>(), {
+const props = withDefaults(defineProps<IAccordionProps>(), {
   accordionNo: undefined,
   title: "",
   titleSupp: "",
   body: "",
+  isOpen: false,
+});
+
+const isOpen = ref(false);
+const bodyRef = ref<HTMLElement | null>();
+const accordionRef = ref<HTMLElement | null>();
+
+const bodyHeight = ref("0px");
+
+const toggleAccordion = async (state: boolean) => {
+  console.log(state, isOpen.value);
+  isOpen.value = state !== undefined ? state : !isOpen.value;
+
+  await nextTick(); // Ensure DOM updates before measuring height
+
+  bodyHeight.value =
+    isOpen.value && bodyRef.value ? `${bodyRef.value.scrollHeight}px` : "0px";
+};
+
+watch(() => props.isOpen, toggleAccordion);
+
+defineExpose({
+  accordionRef,
+  toggleAccordion,
 });
 </script>
 
 <style>
-.accordion__body {
-  display: none;
+.accordion + .accordion {
+  margin-top: 1rem;
 }
 
-.accordion__radio:checked ~ .accordion__body {
-  display: block;
+.accordion__label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: #740bdc;
+  color: #fff;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  height: 4rem;
+  align-content: center;
+}
+
+.accordion__body {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease-in-out;
+  background-color: red;
+}
+
+.accordion__radio {
+  display: none;
 }
 </style>
