@@ -55,6 +55,11 @@ import WorkItems from "./WorkItems.vue";
   color: #fff;
 }
 
+.my-work__intro-text p {
+  font-family: "Roboto Mono", serif;
+  line-height: 1.75rem;
+}
+
 .my-work__work-container {
   padding-bottom: 8rem;
   max-width: 1200px;

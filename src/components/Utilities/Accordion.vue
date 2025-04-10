@@ -10,7 +10,9 @@
       ref="bodyRef"
       :style="{ height: bodyHeight }"
     >
-      <slot name="body"></slot>
+      <div class="accordion__body-content-wrapper">
+        <slot name="body"></slot>
+      </div>
     </section>
   </section>
 </template>
@@ -41,7 +43,6 @@ const accordionRef = ref<HTMLElement | null>();
 const bodyHeight = ref("0px");
 
 const toggleAccordion = async (state: boolean) => {
-  console.log(state, isOpen.value);
   isOpen.value = state !== undefined ? state : !isOpen.value;
 
   await nextTick(); // Ensure DOM updates before measuring height
@@ -79,11 +80,16 @@ defineExpose({
 .accordion__body {
   height: 0;
   overflow: hidden;
-  transition: height 0.3s ease-in-out;
-  background-color: red;
+  transition: all 0.3s ease-in-out;
 }
 
 .accordion__radio {
   display: none;
+}
+
+.accordion__body-content-wrapper {
+  background-color: #231e41;
+  color: #fff;
+  padding: 1rem 1.5rem;
 }
 </style>
