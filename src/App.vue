@@ -5,6 +5,7 @@ import Intro from "./components/Intro.vue";
 import Expertise from "./components/Expertise.vue";
 import MyWork from "./components/MyWork.vue";
 import ProfessionalExperience from "./components/ProfessionalExperience.vue";
+import ContactMe from "./components/ContactMe.vue";
 
 const main = ref();
 
@@ -31,6 +32,9 @@ const handleScroll = () => {
         </section>
         <section class="dark-bg margin-0">
           <ProfessionalExperience />
+        </section>
+        <section class="dark-bg margin-0">
+          <ContactMe />
         </section>
       </article>
     </section>
