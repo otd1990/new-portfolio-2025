@@ -4,15 +4,11 @@
       <div class="accordion__title">{{ title }}</div>
       <div class="accordion__title-supp">
         <p>{{ titleSup }}</p>
-        <div
-          :class="`accordion__circle-plus ${
-            isOpen ? 'accordion--opened' : 'accordion--closed'
-          }`"
-        >
-          <div class="accordion__circle">
-            <div class="accordion__horizontal-line"></div>
-            <div class="accordion__vertical-line"></div>
-          </div>
+        <div class="accordion__icon-container">
+          <Icon
+            name="down-caret"
+            :class="`accordion__icon ${isOpen ? 'accordion__icon--open' : ''}`"
+          />
         </div>
       </div>
     </div>
@@ -31,6 +27,7 @@
 
 <script setup lang="ts">
 import { ref, watch, nextTick } from "vue";
+import Icon from "../Icon.vue";
 
 interface IAccordionProps {
   accordionNo: number;
@@ -115,68 +112,27 @@ defineExpose({
   padding: 1rem 1.5rem;
 }
 
-/* close / open transition */
-.closed .accordion__vertical-line {
-  transition: all 0.5s ease-in-out;
-  transform: rotate(-90deg);
+.accordion__icon-container {
+  height: 1.65rem;
+  width: 1.65rem;
 }
 
-.closed .accordion__horizontal-line {
-  transition: all 0.5s ease-in-out;
-  transform: rotate(-90deg);
-  opacity: 1;
-}
-
-.accordion--opened {
-  opacity: 1;
-}
-
-.accordion--opened .accordion__vertical-line {
-  transition: all 0.5s ease-in-out;
-  transform: rotate(90deg);
-}
-.accordion--opened .accordion__horizontal-line {
-  transition: all 0.5s ease-in-out;
-  transform: rotate(90deg);
-  opacity: 0;
-}
-
-.accordion__circle-plus {
-  height: 4em;
-  width: 2em;
-  font-size: 1em;
-}
-
-.accordion__circle-plus .accordion__circle {
-  position: relative;
+.accordion__icon {
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.accordion__circle-plus .accordion__circle .accordion__horizontal-line {
-  position: absolute;
-  background-color: #fff;
-  width: 10px;
-  height: 2px;
-  left: 50%;
-  margin-left: -7px;
-  top: 61%;
-  margin-top: -9.5px;
-}
-.accordion__circle-plus .accordion__circle .accordion__vertical-line {
-  position: absolute;
-  background-color: #fff;
-  width: 2px;
-  height: 10px;
-  left: 50%;
-  margin-left: -2.5px;
-  top: 64%;
-  margin-top: -15px;
 }
 
-.active .accordion--opened .accordion__circle .accordion__vertical-line {
-  background-color: #66d9ed;
+.accordion__icon--open {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 700px) {
+  .accordion__label {
+    min-height: 4rem;
+    height: auto;
+    gap: 1rem;
+  }
 }
 </style>
