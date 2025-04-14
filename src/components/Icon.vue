@@ -1,5 +1,5 @@
 <script setup>
-import { defineAsyncComponent } from "vue";
+import { computed } from "vue";
 
 const props = defineProps({
   name: {
@@ -8,9 +8,13 @@ const props = defineProps({
   },
 });
 
-const icon = defineAsyncComponent(() =>
-  import(`/src/assets/images/icons/${props.name}.svg` /* @vite-ignore */)
-);
+const icons = import.meta.glob("/src/assets/images/icons/*.svg", {
+  eager: true,
+});
+
+const icon = computed(() => {
+  return icons[`/src/assets/images/icons/${props.name}.svg`]?.default;
+});
 </script>
 
 <template>
