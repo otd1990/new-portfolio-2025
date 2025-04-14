@@ -53,15 +53,14 @@ const contactEmail = ref("");
 const contactComment = ref("");
 
 const handleSubmit = (e) => {
-  console.log(contactName.value, contactEmail.value, contactComment.value);
   if (contactName.value === "" && contactEmail.value === "") return;
 
   emailjs
     .sendForm(
-      "service_kqh6ulf",
-      "template_vgugdg4",
+      import.meta.env.VITE_EMAIL_SERVICE_ID,
+      import.meta.env.VITE_EMAIL_TEMPLATE_ID,
       e.target,
-      "BDMNT6JrKNvNIiv4f",
+      import.meta.env.VITE_EMAIL_PUBLIC_KEY,
       {
         name: contactName.value,
         email: contactEmail.value,
