@@ -42,9 +42,9 @@ const handleScroll = () => {
 </template>
 
 <style scoped>
-#main {
+/* #main {
   height: 100dvh;
-}
+} */
 
 .canvas-bg {
   background: linear-gradient(#042731 5%, #1d1d1d 95%);
