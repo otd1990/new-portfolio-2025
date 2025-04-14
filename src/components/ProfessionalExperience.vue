@@ -191,7 +191,8 @@ const handleToggle = async (index) => {
 .professional-experience__accordions {
   max-width: 1200px;
   width: 100%;
-  padding: 0 0.65rem;
+  padding: 0 2rem;
+  margin: 0 auto;
 }
 
 .professional-experience__heading {
