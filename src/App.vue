@@ -12,7 +12,7 @@ const main = ref();
 const handleScroll = () => {
   main.value.scrollIntoView({
     behavior: "smooth",
-    block: "end",
+    block: "nearest",
     inline: "nearest",
   });
 };

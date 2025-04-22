@@ -113,8 +113,10 @@ defineExpose({
 }
 
 .accordion__icon-container {
-  height: 1.65rem;
-  width: 1.65rem;
+  min-height: 1.65rem;
+  min-width: 1.65rem;
+  display: flex;
+  align-items: center;
 }
 
 .accordion__icon {
@@ -132,7 +134,18 @@ defineExpose({
   .accordion__label {
     min-height: 4rem;
     height: auto;
-    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.15rem;
+  }
+
+  .accordion__title {
+    flex: 1 0 100%;
+  }
+
+  .accordion__title-supp {
+    flex: 1 0 100%;
+    justify-content: space-between;
   }
 }
 </style>

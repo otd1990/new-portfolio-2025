@@ -6,7 +6,9 @@ import WorkItems from "./WorkItems.vue";
 <template>
   <section class="my-work section-padding">
     <div class="my-work__intro">
-      <h2 class="h1">My<br />Work</h2>
+      <h2 class="h1">
+        <span class="my-work__heading-first-word">My</span> Work
+      </h2>
       <section class="my-work__intro-text">
         <div>
           <p>
@@ -37,20 +39,30 @@ import WorkItems from "./WorkItems.vue";
   margin: 0 auto;
   padding: 2rem;
   flex-wrap: wrap;
-
-  > div {
-    flex: 1;
-  }
-
-  > aside {
-    flex: 0;
-
-    > svg {
-      margin: 0 auto;
-      display: block;
-    }
-  }
 }
+
+.my-work__intro {
+  flex: 1;
+}
+
+.my-work__heading-first-word {
+  font-weight: inherit;
+}
+
+.my-work__heading-first-word::after {
+  content: "\A";
+  white-space: pre;
+}
+
+.my-work__image {
+  flex: 0;
+}
+
+.my-work__image svg {
+  margin: 0 auto;
+  display: block;
+}
+
 .my-work__intro-text {
   color: #fff;
 }
@@ -65,5 +77,26 @@ import WorkItems from "./WorkItems.vue";
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+  .my-work__intro,
+  .my-work__image {
+    flex: 1 0 100%;
+  }
+
+  .my-work__image svg {
+    height: auto !important;
+    width: 100% !important;
+  }
+
+  .my-work__intro .h1 {
+    text-align: center;
+  }
+
+  .my-work__heading-first-word::after {
+    content: "";
+    white-space: initial;
+  }
 }
 </style>

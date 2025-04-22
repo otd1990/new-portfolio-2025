@@ -300,6 +300,7 @@ const filteredProjects = computed(() => {
 
   .work-item__filter-list {
     flex-wrap: wrap;
+    justify-content: center;
   }
 }
 </style>
