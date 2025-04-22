@@ -229,4 +229,10 @@ const handleToggle = async (index) => {
   font-size: 0.75rem;
   border-radius: 2rem;
 }
+
+@media (max-width: 1200px) {
+  .professional-experience__accordions {
+    padding: 0;
+  }
+}
 </style>
