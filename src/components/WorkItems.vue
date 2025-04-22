@@ -20,7 +20,12 @@
         </li>
       </ul>
     </section>
-    <section class="work-item__gallery">
+    <section
+      class="work-item__gallery"
+      :class="{
+        'work-item__gallery-item--one-row': filteredProjects.length < 2,
+      }"
+    >
       <article
         v-for="(project, index) in filteredProjects"
         :key="`${project}${project.id}-${index}`"
@@ -284,6 +289,10 @@ const filteredProjects = computed(() => {
 @media (max-width: 900px) {
   .work-item__gallery {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .work-item__gallery-item--one-row {
+    grid-template-rows: repeat(1, 1fr);
   }
 }
 
