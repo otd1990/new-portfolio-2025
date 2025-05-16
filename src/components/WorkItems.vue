@@ -57,7 +57,7 @@
           <a
             class="btn btn-primary work-item__btn"
             :href="`${project.url}`"
-            target="blank"
+            target="_blank"
             rel="noopener noreferrer"
           >
             <div>{{ project.isDeployed ? "Visit Site" : "Go to project" }}</div>

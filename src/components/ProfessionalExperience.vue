@@ -52,7 +52,7 @@ const experience = [
     id: 4,
     title: "Fieldwork Technology Programmer",
     company: "MaritzCX",
-    yearsWorked: "2022 - Present",
+    yearsWorked: "2014 - 2019",
     jd: "",
   },
 ];
